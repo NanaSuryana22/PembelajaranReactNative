@@ -1,111 +1,61 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, {Component} from 'react';
+import {View, Text, Image, TextInput} from 'react-native';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+      <View style={{width: 80, height: 80, backgroundColor: 'skyblue'}} />
+      <Text>Nana Suryana</Text>
+      <Home />
+      <Photo />
+      <TextInput style={{borderWidth: 1}} />
+      <BoxGreen />
+      <Profile />
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Home = () => {
+  return <Text>hahahaha</Text>;
+};
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+const Photo = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Hello World">
-            <Text style={styles.highlight}>Hello Nana Suryana.</Text> Welcome to React Native.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Image
+      source={{uri: 'https://placeimg.com/100/100/tech'}}
+      style={{width: 100, height: 100}}
+    />
   );
 };
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+class BoxGreen extends Component {
+  render() {
+    return <Text>Nana Suryana adalah seorang IT Programmer</Text>;
+  }
+}
+
+class Profile extends Component {
+  render() {
+    return (
+      <View>
+        <Image
+          source={{uri: 'https://placeimg.com/100/100/animals'}}
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            alignContent: 'center',
+            marginLeft: 15,
+          }}
+        />
+        <Text style={{fontSize: 14, color: 'red', marginLeft: 30}}>
+          {' '}
+          Ini Hewan{' '}
+        </Text>
+      </View>
+    );
+  }
+}
 
 export default App;
