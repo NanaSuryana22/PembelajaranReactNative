@@ -1,111 +1,99 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Image, View, Text, StyleSheet} from 'react-native';
+import macbook from './macbook.jpeg';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+      <StylingReactNativeComponent />
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: 'skyblue',
+          borderWidth: 2,
+          borderColor: 'red',
+          marginLeft: 20,
+          marginTop: 20
+        }}
+      />
+      <View
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={{
+          padding: 12,
+          borderRadius: 8,
+          backgroundColor: '#D3D3D3',
+          width: 212,
+          marginTop: 20,
+        }}>
+        <Image
+          source={macbook}
+          style={{width: 188, height: 107, borderRadius: 8}}
+        />
+        <Text
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            fontSize: 16,
+            fontWeight: 'bold',
+            marginTop: 16,
+            fontFamily: 'Roboto',
+          }}>
+          New Macbook Pro 2020
+        </Text>
+        <Text
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            fontSize: 14,
+            color: '#F29942',
+            marginTop: 14,
+            fontWeight: 'bold',
+          }}>
+          Rp. 25.000.000,-
+        </Text>
+        <Text
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            fontSize: 14,
+            marginTop: 14,
+          }}>
+          Jakarta Barat
+        </Text>
+        <View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            paddingVertical: 6,
+            borderRadius: 25,
+            backgroundColor: '#6FCF97',
+            marginTop: 20,
+          }}>
+          <Text
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{
+              fontSize: 14,
+              color: 'white',
+              textAlign: 'center',
+              fontWeight: '600',
+            }}>
+            Beli
+          </Text>
+        </View>
+      </View>
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Hello World">
-            <Text style={styles.highlight}>Hello Nana Suryana.</Text> Welcome to React Native.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+const StylingReactNativeComponent = () => {
+  return <Text style={styles.text}>Styling React Native Component</Text>;
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
+  text: {
     fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+    fontWeight: 'bold',
+    marginLeft: 20,
+    marginTop: 40,
+  }
 });
 
 export default App;
